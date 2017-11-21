@@ -11,6 +11,10 @@ class Calculator
         digits.inject(:+)
     end
 
+    def multiply
+        digits.inject(:*)
+    end
+
     private
 
     def parse_input(digits_string)
@@ -22,5 +26,10 @@ describe Calculator do
     it 'sums provided digits' do
         calc = Calculator.new('1,2,3,4,5')
         calc.sum.must_equal(15) 
+    end
+
+    it 'multiples provided digits' do
+        calc = Calculator.new('4,5')
+        calc.multiply.must_equal(20)
     end
 end
